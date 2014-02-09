@@ -12,6 +12,7 @@ ksw/shopstyle/ShopStyleData.java ksw/shopstyle/ShopStyleData.java
 ksw/shopstyle/ShopStyleServer.java ksw/shopstyle/ShopStyleServer.java
 ksw/shopstyle/TestShopStyle.java ksw/shopstyle/TestShopStyle.java
 
+ksw/kwutil/ArgsToMap.java ksw/kwutil/ArgsToMap.java
 ksw/kwutil/FileInfo.java ksw/kwutil/FileInfo.java
 ksw/kwutil/FileInfoExtensionFilter.java ksw/kwutil/FileInfoExtensionFilter.java
 ksw/kwutil/FileInfoFilter.java ksw/kwutil/FileInfoFilter.java
@@ -24,18 +25,23 @@ ksw/kwutil/Owt.java ksw/kwutil/Owt.java
 ksw/kwutil/StringUtil.java ksw/kwutil/StringUtil.java
 #ksw/kwutil/simpledb/ ksw/kwutil/simpledb/
 
-#ksw/servlet/AppCookie.java ksw/servlet/AppCookie.java
-#ksw/servlet/AppRequest.java ksw/servlet/AppRequest.java
-#ksw/servlet/AppServlet.java ksw/servlet/AppServlet.java
+ksw/servlet/AppCookie.java ksw/servlet/AppCookie.java
+ksw/servlet/AppRequest.java ksw/servlet/AppRequest.java
+ksw/servlet/AppServlet.java ksw/servlet/AppServlet.java
 #ksw/servlet/EchoReply.java ksw/servlet/EchoReply.java
 #ksw/servlet/EchoServlet.java ksw/servlet/EchoServlet.java
 #ksw/servlet/FileReadServlet.java ksw/servlet/FileReadServlet.java
-#ksw/servlet/ServletHelp.java ksw/servlet/ServletHelp.java
-#ksw/servlet/ServletPage.java ksw/servlet/ServletPage.java
+ksw/servlet/ServletHelp.java ksw/servlet/ServletHelp.java
+ksw/servlet/ServletPage.java ksw/servlet/ServletPage.java
 #ksw/servlet/ServletParameters.java ksw/servlet/ServletParameters.java
 #ksw/servlet/ServletServer.java ksw/servlet/ServletServer.java
+ksw/servlet/VelocityPage.java ksw/servlet/VelocityPage.java
 
-#ksw/webserver/WebServer.java ksw/webserver/WebServer.java
+ksw/webserver/HerokuServer.java ksw/webserver/HerokuServer.java
+ksw/webserver/FileReadHandler.java ksw/webserver/FileReadHandler.java
+ksw/webserver/RestHandler.java ksw/webserver/RestHandler.java
+ksw/webserver/WebServer.java ksw/webserver/WebServer.java
+ksw/webserver/page/SamplePage.java ksw/webserver/page/SamplePage.java
 
 destbase: /Users/kevin/zkevins/program/heroku/shopstyle/src/main/
 ksw/shopstyle/client/ webapp/

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
     <version>1.0-SNAPSHOT</version>
-    <artifactId>shopstyle-angular-demo</artifactId>
+    <artifactId>helloworld</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
@@ -16,6 +16,16 @@
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.5</version>
         </dependency>
     </dependencies>
     <build>
