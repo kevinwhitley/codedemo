@@ -63,8 +63,8 @@ function BrowseCtrl($scope, ssdata)
     
     // get required data
     ssdata.requireBrands($scope).then(function(){
-        // once we've loaded all the brands, just get the first 10
-        $scope.brands = ssdata.getTwentyBrands();
+        // once we've loaded all the brands, just get the first 40
+        $scope.brands = ssdata.getNBrands($scope, 40);
     });
     ssdata.requireColors($scope).then(function(colors){
         $scope.colors = colors;

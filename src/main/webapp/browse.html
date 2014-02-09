@@ -14,9 +14,11 @@
         </div>
     </ss-expander>
     <ss-expander header="Brands">
-        <div><input type="radio" ng-model="bd.brand" value="any"> Any</div>
-        <div ng-repeat="br in brands">
-            <input type="radio" ng-model="bd.brand" value="{{br.id}}"> {{br.name}}
+        <div id="brandList">
+            <div><input type="radio" ng-model="bd.brand" value="any"> Any</div>
+            <div ng-repeat="br in brands">
+                <input type="radio" ng-model="bd.brand" value="{{br.id}}"> {{br.name}}
+            </div>
         </div>
     </ss-expander>
     <ss-expander header="Departments">
@@ -40,7 +42,8 @@
 </div>
 <div id="browseThumbs">
     <div style="float:left">
-        <a href="#/compare">Compare</a>
+        Click product image to select, and then <a href="#/compare">Compare</a><br/>
+        click thumbnail to deselect
     </div>
     <div ng-repeat="tp in thumbProducts">
         <img class="thumb" ng-src="{{tp.thumbUrl}}" ng-click="thumbClick(tp.id)">

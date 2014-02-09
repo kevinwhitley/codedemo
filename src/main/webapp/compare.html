@@ -1,7 +1,6 @@
 <ss-page-wrapper>
-<div>
-Compare products:
-</div>
+<div id="comparison">
+Compare your selected products:
 <table>
     <tr>
         <td>Name</td>
@@ -10,11 +9,12 @@ Compare products:
         <td>Retailer</td>
     </tr>
     <tr ng-repeat="product in chosenProducts">
-        <td>{{product.name}}</td>
+        <td>{{product.name | clip25}}</td>
         <td>{{product.priceLabel}}</td>
         <td>{{showBrand(product)}}</td>
         <td>{{showRetailer(product)}}</td>
         
     </tr>
 </table>
+</div>
 </ss-page-wrapper>

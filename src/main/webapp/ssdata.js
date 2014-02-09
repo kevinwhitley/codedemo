@@ -1,5 +1,7 @@
 
 // ShopStyle data service for an angular app
+// see http://shopsense.shopstyle.com/shopsense/7234015 for a description of the ShopStyle API
+
 function SSData(qq, http)
 {
     // remember the angular services
@@ -34,10 +36,10 @@ SSData.prototype.resolve = function(result)
     return deferred.promise;
 };
 
-//get products of a given color
+//get products of a given category, filter and sort
 //theScope is the current $scope (from the controller)
 // sortOrder is 0: relevance, 1: lo price to hi, 2: hi price to low
-//returns a promise with all the retailers
+//returns a promise with the chosen products
 SSData.prototype.requireProducts = function(theScope, category, filter, sortOrder)
 {
     // for now, always fetch a new set from the server, even if just sorting
@@ -185,23 +187,22 @@ SSData.prototype.requireWomensCategories = function(theScope)
     }
 };
 
-SSData.prototype.getTwentyBrands = function(theScope)
+SSData.prototype.getNBrands = function(theScope, count)
 {
     // just return the first 20 brands
     
     // we're assuming that this is called after requireBrands has returned
     // but just in case
-    if (!this._brands || this._brands.length < 20) {
+    if (!this._brands) {
         return [];
     }
     
-    var result = []
-    var ii;
-    for (ii=0; ii<20; ii++) {
-        result.push(this._brands[ii]);
+    if (this._brands.length <= count) {
+        return this._brands;
     }
-    
-    return result;
+    else {
+        return this._brands.slice(0, count);
+    }
 };
 
 SSData.prototype.getProductById = function(id)

@@ -52,7 +52,11 @@
     text-align: center;
 }
 .productCellChosen {
-    border: 1px solid red;
+    border: 3px solid #CAA;
+    background-color: #eee;
+}
+.productCell.productCellChosen {
+    margin: 3px;
 }
 
 .productCell .expand {
@@ -89,7 +93,7 @@
     border: 2px solid black;
     background-color: #d8d8d8;
     width: 500px;
-    height: 600px;
+    height: 610px;
 }
 #largeProductClose {
     position: absolute;
@@ -107,6 +111,10 @@
     position: absolute;
     left: 5px;
     top: 5px;
+}
+#largeImageWrapper img {
+    max-width: 460px;
+    max-height: 590px;
 }
 
 #browseOptions {
@@ -128,6 +136,12 @@
 }
 #browseOptions .expanderBody {
     background-color: #eee;
+    font-size: 14px;
+}
+#brandList {
+    max-height: 300px;
+    overflow: auto;
+    padding-left: 2px;
 }
 
 #browseResults {
@@ -151,4 +165,20 @@
 #browseThumbs .thumb {
     float: left;
     margin: 3px 5px;
+}
+
+/* ========== retailer list page */
+#retailerList {
+    height: 90%;
+    overflow-y: auto;
+}
+
+/* ========== comparison page */
+#comparison {
+    margin: 10px;
+}
+
+#comparison table {
+    margin: 10px 0;
+    width: 600px;
 }
