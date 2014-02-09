@@ -1,0 +1,50 @@
+# copy the heroku test files from svn directory to maven/heroku installation
+sourcebase: /Users/kevin/zkevins/program/trunk/
+destbase: /Users/kevin/zkevins/program/heroku/shopstyle/src/main/java/
+
+ksw/shopstyle/Brand.java ksw/shopstyle/Brand.java
+ksw/shopstyle/Category.java ksw/shopstyle/Category.java
+ksw/shopstyle/Color.java ksw/shopstyle/Color.java
+ksw/shopstyle/Product.java ksw/shopstyle/Product.java
+ksw/shopstyle/Retailer.java ksw/shopstyle/Retailer.java
+ksw/shopstyle/ShopStyleApi.java ksw/shopstyle/ShopStyleApi.java
+ksw/shopstyle/ShopStyleData.java ksw/shopstyle/ShopStyleData.java
+ksw/shopstyle/ShopStyleServer.java ksw/shopstyle/ShopStyleServer.java
+ksw/shopstyle/TestShopStyle.java ksw/shopstyle/TestShopStyle.java
+
+ksw/kwutil/FileInfo.java ksw/kwutil/FileInfo.java
+ksw/kwutil/FileInfoExtensionFilter.java ksw/kwutil/FileInfoExtensionFilter.java
+ksw/kwutil/FileInfoFilter.java ksw/kwutil/FileInfoFilter.java
+ksw/kwutil/FileInfoIterator.java ksw/kwutil/FileInfoIterator.java
+ksw/kwutil/FileUtil.java ksw/kwutil/FileUtil.java
+ksw/kwutil/JSONReader.java ksw/kwutil/JSONReader.java
+ksw/kwutil/JSONWriter.java ksw/kwutil/JSONWriter.java
+ksw/kwutil/Logger.java ksw/kwutil/Logger.java
+ksw/kwutil/Owt.java ksw/kwutil/Owt.java
+ksw/kwutil/StringUtil.java ksw/kwutil/StringUtil.java
+#ksw/kwutil/simpledb/ ksw/kwutil/simpledb/
+
+#ksw/servlet/AppCookie.java ksw/servlet/AppCookie.java
+#ksw/servlet/AppRequest.java ksw/servlet/AppRequest.java
+#ksw/servlet/AppServlet.java ksw/servlet/AppServlet.java
+#ksw/servlet/EchoReply.java ksw/servlet/EchoReply.java
+#ksw/servlet/EchoServlet.java ksw/servlet/EchoServlet.java
+#ksw/servlet/FileReadServlet.java ksw/servlet/FileReadServlet.java
+#ksw/servlet/ServletHelp.java ksw/servlet/ServletHelp.java
+#ksw/servlet/ServletPage.java ksw/servlet/ServletPage.java
+#ksw/servlet/ServletParameters.java ksw/servlet/ServletParameters.java
+#ksw/servlet/ServletServer.java ksw/servlet/ServletServer.java
+
+#ksw/webserver/WebServer.java ksw/webserver/WebServer.java
+
+destbase: /Users/kevin/zkevins/program/heroku/shopstyle/src/main/
+ksw/shopstyle/client/ webapp/
+
+sourcebase: /Users/kevin/zkevins/program/trunk/website/cl/jslib/
+destbase: /Users/kevin/zkevins/program/heroku/shopstyle/src/main/webapp/cl/jslib/
+jq/jquery-1.9.1.js jq/jquery-1.9.1.js
+kw_jq.js kw_jq.js
+angular1.2/angular.js angular1.2/angular.js
+angular1.2/angular-route.js angular1.2/angular-route.js
+
+

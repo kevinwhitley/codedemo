@@ -1,0 +1,8 @@
+<div ng-class="cellClass()">
+    <div>{{product.name | clip25}}</div>
+    <div>
+        <img ng-src="{{product.imageUrl}}" ng-click="imageClick(product.id)">
+    </div>
+    <div>{{product.priceLabel}}</div>
+    <div class="expand" ng-click="expandClick(product.id)">+</div>
+</div>

@@ -1,0 +1,49 @@
+<ss-page-wrapper>
+<div id="browseCrumb">
+{{browseCrumb}}
+    <div id="sortOrderList">
+        {{sortOrder.value}} Sort:
+        <select ng-model="bd.sortOrder" ng-options="so.label for so in sortOrderOptions"></select>
+    </div>
+</div>
+<div id="browseOptions">
+    <ss-expander header="Colors">
+        <div><input type="radio" ng-model="bd.color" value="any"> Any</div>
+        <div ng-repeat="cl in colors">
+            <input type="radio" ng-model="bd.color" value="{{cl.id}}"> {{cl.name}}
+        </div>
+    </ss-expander>
+    <ss-expander header="Brands">
+        <div><input type="radio" ng-model="bd.brand" value="any"> Any</div>
+        <div ng-repeat="br in brands">
+            <input type="radio" ng-model="bd.brand" value="{{br.id}}"> {{br.name}}
+        </div>
+    </ss-expander>
+    <ss-expander header="Departments">
+        <div ng-repeat="ca in categories">
+            <input type="radio" ng-model="bd.category" value="{{ca.id}}"> {{ca.name}}
+        </div>
+    </ss-expander>
+</div>
+<div id="browseResults">
+    <div ng-repeat="pp in products">
+        <ss-product product="pp" onexpand="onExpand(productId)" onimageclick="onImageClick(productId)" chosen="isChosen(pp)"></ss-product>
+    </div>
+    <div style="clear:both"></div>
+    <div ng-if="products.length < 1">Not found</div>
+    <div ng-if="largeImageUrl" id="largeImageDisplay">
+        <div id="largeProductClose" ng-click="closeLarge()">-</div>
+        <div id="largeImageWrapper">
+            <img ng-src="{{largeImageUrl}}">
+        </div>
+    </div>
+</div>
+<div id="browseThumbs">
+    <div style="float:left">
+        <a href="#/compare">Compare</a>
+    </div>
+    <div ng-repeat="tp in thumbProducts">
+        <img class="thumb" ng-src="{{tp.thumbUrl}}" ng-click="thumbClick(tp.id)">
+    </div>
+</div>
+</ss-page-wrapper>

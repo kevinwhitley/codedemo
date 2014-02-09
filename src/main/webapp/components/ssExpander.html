@@ -1,0 +1,6 @@
+<div class="expander">
+    <div class="expanderHeader" ng-click="showing = !showing">
+        {{header}}
+    </div>
+    <div ng-transclude ng-show="showing" class="expanderBody"></div>
+</div>
