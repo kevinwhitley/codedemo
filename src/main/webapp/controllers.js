@@ -32,7 +32,7 @@ function CompareCtrl($scope, ssdata)
     };
 }
 
-function BrowseCtrl($scope, ssdata)
+function BrowseCtrl($scope, $location, ssdata)
 {
     $scope.products = null;
     $scope.bd = {  // browse data
@@ -62,39 +62,52 @@ function BrowseCtrl($scope, ssdata)
     $scope.bd.sortOrder = $scope.sortOrderOptions[0];
     
     // get required data
+    // initial load of page
+    // note that the locationChangeSuccess event has already been fired
+    // we don't want to query until the categories have loaded
+    var canQuery = false;
     ssdata.requireBrands($scope).then(function(){
         // once we've loaded all the brands, just get the first 40
         $scope.brands = ssdata.getNBrands($scope, 40);
-    });
-    ssdata.requireColors($scope).then(function(colors){
-        $scope.colors = colors;
+
+        
+        ssdata.requireColors($scope).then(function(colors){
+            $scope.colors = colors;
+            
+            ssdata.requireWomensCategories($scope).then(function(categories){
+                $scope.categories = categories;
+                //$scope.bd.category = 'dresses';
+                var search = $location.search();
+                canQuery = true;
+                //setLocationF(search.cat, search.color, search.brand);
+                runSearchF(search);
+            });
+        });
     });
     
-    // we don't want to query until the categories have loaded
-    var canQuery = false;
-    ssdata.requireWomensCategories($scope).then(function(categories){
-        $scope.categories = categories;
-        $scope.bd.category = 'dresses';
-        canQuery = true;
-    });
     
     // watch for changes in the browse options
     $scope.$watch('bd.color + "|" + bd.brand + "|" + bd.category + "|" + bd.sortOrder.value', function(){
+        /*
         // update the crumb
         var colorName = '';
         var brandName = '';
         var categoryName = '';
         var filter = null;
+        //var query = '';
         if ($scope.bd.color !== 'any') {
             colorName = ssdata.getColorById($scope.bd.color).name;
             filter = 'fl=c'+$scope.bd.color;
+            //query = 'color='+$scope.bd.color;
         }
         if ($scope.bd.brand !== 'any') {
             brandName = ssdata.getBrandById($scope.bd.brand).name;
             filter = (filter ? (filter+'&') : '') + 'fl=b'+$scope.bd.brand;
+            //query += (query ? '&' : '') + 'brand=' + $scope.bd.brand;
         }
         if ($scope.bd.category != '') {
             categoryName = ssdata.getCategoryById($scope.bd.category).name;
+            //query += (query ? '&' : '') + 'cat=' + $scope.bd.category;
         }
         $scope.browseCrumb = colorName + ' ' + brandName + ' ' + categoryName;
         if (canQuery) {
@@ -102,7 +115,62 @@ function BrowseCtrl($scope, ssdata)
                 $scope.products = products;
             });
         }
+        */
+        
+        //$scope.filterEcho = query;
+        setLocationF($scope.bd.category, $scope.bd.color, $scope.bd.brand);
     });
+    
+    var setLocationF = function(cat, color, brand) {
+        if (!canQuery) {
+            return;
+        }
+        // console.log('setLocationF: ' + cat + ' # ' + color + ' # ' + brand);    
+        if (!cat) {
+            cat = 'dresses';
+        }
+        var locationQuery = {cat: cat};
+        if (color && color !== 'any') {
+            locationQuery.color = color;
+        }
+        if (brand && brand !== 'any') {
+            locationQuery.brand = brand;
+        }
+        $location.search(locationQuery);
+    };
+    
+    $scope.$on('$locationChangeSuccess', function(event) {
+        var search = $location.search();
+        runSearchF(search);
+    });
+    
+    var runSearchF = function(search) {
+        // console.log('running search: ' + search.cat + ' # ' + search.color + ' # ' + search.brand);
+        if (canQuery) {
+            var filter = null;
+            // update the crumb
+            var colorName = '';
+            var brandName = '';
+            var categoryName = ssdata.getCategoryById(search.cat).name;
+            $scope.bd.category = search.cat;
+            if (search.color) {
+                filter = 'fl=c'+search.color;
+                colorName = ssdata.getColorById(search.color).name;
+                $scope.bd.color = search.color;
+            }
+            if (search.brand) {
+                filter = (filter ? (filter+'&') : '') + 'fl=b'+search.brand;
+                brandName = ssdata.getBrandById(search.brand).name;
+                $scope.bd.brand = search.brand;
+            }
+            ssdata.requireProducts($scope, search.cat, filter, $scope.bd.sortOrder.value).then(function(products){
+                $scope.browseCrumb = colorName + ' ' + brandName + ' ' + categoryName;
+                //console.log('browseCrumb: ' + $scope.browseCrumb);
+                $scope.products = products;
+            });
+        }
+    };
+
 
     // to show and hide a large image
     $scope.onExpand = function(productId) {

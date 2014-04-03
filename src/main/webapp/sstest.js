@@ -17,7 +17,7 @@ var myModule = angular.module('sstest', ['ngRoute', 'ssDataModule', 'ssDirective
 myModule.config(['$routeProvider', function($routeProvider) {
   $routeProvider
       .when('/home', {templateUrl: 'home.html',   controller: HomeCtrl})
-      .when('/browse', {templateUrl: 'browse.html',   controller: BrowseCtrl})
+      .when('/browse', {templateUrl: 'browse.html',   controller: BrowseCtrl, reloadOnSearch: false})
       .when('/retailers', {templateUrl: 'retailers.html',   controller: RetailersCtrl})
       .when('/compare', {templateUrl: 'compare.html',   controller: CompareCtrl})
       .otherwise({redirectTo: '/home'});
