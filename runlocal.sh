@@ -1,1 +1,1 @@
-java -cp target/classes:target/dependency/* ksw.herokutest.StoriezServer
+java -cp target/classes:target/dependency/* ksw.shopstyle.ShopStyleServer
